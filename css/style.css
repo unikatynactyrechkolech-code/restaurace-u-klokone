@@ -98,30 +98,15 @@ html {
     scrollbar-color: #C9A227 #0F0F1A;
 }
 
-/* Skrýt scrollbary na všech ostatních elementech */
-*:not(html)::-webkit-scrollbar {
+/* Skrýt scrollbary na všech ostatních elementech - ale NEBLOKOVAT scroll stránky */
+*:not(html):not(body)::-webkit-scrollbar {
     display: none !important;
     width: 0 !important;
     height: 0 !important;
 }
 
-/* Zakázat scrollování v menu sekcích */
-.menu-section,
-.menu-content,
-.menu-panel,
-.menu-grid,
-.menu-card,
-.menu-card-body,
-.denni-menu-section,
-.denni-menu-grid,
-.menu-category {
-    overflow: hidden !important;
-    -webkit-overflow-scrolling: auto !important;
-    overscroll-behavior: none !important;
-}
-
-/* Firefox scrollbar - skrýt všude kromě html */
-*:not(html) {
+/* Firefox scrollbar - skrýt všude kromě html/body */
+*:not(html):not(body) {
     scrollbar-width: none !important;
 }
 
