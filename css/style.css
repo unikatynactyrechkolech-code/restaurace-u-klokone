@@ -73,22 +73,56 @@ section {
     -webkit-overflow-scrolling: touch;
 }
 
-/* Custom scrollbar */
+/* Scrollbar POUZE pro html - hlavní stránka */
 html::-webkit-scrollbar {
-    width: 8px;
+    width: 10px;
+    background: #0F0F1A;
 }
 
 html::-webkit-scrollbar-track {
-    background: var(--color-dark);
+    background: #0F0F1A;
 }
 
 html::-webkit-scrollbar-thumb {
-    background: var(--color-secondary-light);
-    border-radius: 4px;
+    background: #C9A227;
+    border-radius: 5px;
 }
 
 html::-webkit-scrollbar-thumb:hover {
-    background: var(--color-primary);
+    background: #E5C65C;
+}
+
+/* Firefox - pouze html */
+html {
+    scrollbar-width: thin;
+    scrollbar-color: #C9A227 #0F0F1A;
+}
+
+/* Skrýt scrollbary na všech ostatních elementech */
+*:not(html)::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+}
+
+/* Zakázat scrollování v menu sekcích */
+.menu-section,
+.menu-content,
+.menu-panel,
+.menu-grid,
+.menu-card,
+.menu-card-body,
+.denni-menu-section,
+.denni-menu-grid,
+.menu-category {
+    overflow: hidden !important;
+    -webkit-overflow-scrolling: auto !important;
+    overscroll-behavior: none !important;
+}
+
+/* Firefox scrollbar - skrýt všude kromě html */
+*:not(html) {
+    scrollbar-width: none !important;
 }
 
 a {
@@ -2305,3 +2339,6 @@ section {
     width: 100%;
     max-width: 100%;
 }
+
+
+

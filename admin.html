@@ -29,6 +29,7 @@
             --color-gray: #6B6B7B;
             --color-success: #22C55E;
             --color-danger: #EF4444;
+            --color-warning: #F59E0B;
             
             --font-heading: 'Playfair Display', serif;
             --font-body: 'Poppins', sans-serif;
@@ -55,6 +56,75 @@
             color: var(--color-white);
             min-height: 100vh;
             line-height: 1.6;
+        }
+        
+        /* Lock Screen */
+        .lock-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--color-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+        }
+        
+        .lock-screen.hidden {
+            display: none;
+        }
+        
+        .lock-box {
+            background: var(--color-secondary);
+            border-radius: var(--border-radius-lg);
+            padding: 50px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            border: 1px solid rgba(201, 162, 39, 0.2);
+        }
+        
+        .lock-box i {
+            font-size: 4rem;
+            color: var(--color-primary);
+            margin-bottom: 20px;
+        }
+        
+        .lock-box h2 {
+            font-family: var(--font-heading);
+            margin-bottom: 10px;
+        }
+        
+        .lock-box p {
+            color: var(--color-gray);
+            margin-bottom: 30px;
+        }
+        
+        .lock-box input {
+            width: 100%;
+            background: var(--color-dark);
+            border: 2px solid var(--color-secondary-light);
+            border-radius: var(--border-radius);
+            padding: 15px 20px;
+            color: var(--color-white);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .lock-box input:focus {
+            outline: none;
+            border-color: var(--color-primary);
+        }
+        
+        .lock-box .error-msg {
+            color: var(--color-danger);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            display: none;
         }
         
         /* Header */
@@ -132,6 +202,27 @@
             border: 1px solid rgba(201, 162, 39, 0.1);
         }
         
+        .form-card.editing {
+            border-color: var(--color-warning);
+            box-shadow: 0 0 30px rgba(245, 158, 11, 0.2);
+        }
+        
+        .editing-indicator {
+            display: none;
+            background: var(--color-warning);
+            color: var(--color-dark);
+            padding: 10px 20px;
+            border-radius: var(--border-radius);
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+        
+        .form-card.editing .editing-indicator {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
         .form-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -192,6 +283,20 @@
             color: var(--color-white);
         }
         
+        .form-hint {
+            display: block;
+            color: var(--color-gray);
+            font-size: 0.8rem;
+            margin-top: 6px;
+            font-style: italic;
+        }
+        
+        .form-actions {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
         .btn {
             display: inline-flex;
             align-items: center;
@@ -223,6 +328,15 @@
             transform: none;
         }
         
+        .btn-secondary {
+            background: var(--color-secondary-light);
+            color: var(--color-white);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--color-gray);
+        }
+        
         .btn-danger {
             background: var(--color-danger);
             color: var(--color-white);
@@ -232,6 +346,18 @@
         
         .btn-danger:hover {
             background: #DC2626;
+            transform: translateY(-2px);
+        }
+        
+        .btn-warning {
+            background: var(--color-warning);
+            color: var(--color-dark);
+            padding: 10px 20px;
+            font-size: 0.9rem;
+        }
+        
+        .btn-warning:hover {
+            background: #D97706;
             transform: translateY(-2px);
         }
         
@@ -273,6 +399,7 @@
             justify-content: space-between;
             align-items: flex-start;
             margin-bottom: 15px;
+            gap: 15px;
         }
         
         .menu-item-name {
@@ -314,6 +441,7 @@
         
         .menu-item-actions {
             display: flex;
+            gap: 10px;
             justify-content: flex-end;
         }
         
@@ -451,6 +579,197 @@
             font-size: 0.9rem;
         }
         
+        /* ==========================================
+           SEARCH & FILTERS
+           ========================================== */
+        .filters-container {
+            background: var(--color-secondary);
+            border-radius: var(--border-radius-lg);
+            padding: 25px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(201, 162, 39, 0.1);
+        }
+        
+        .search-box {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        
+        .search-box i.fa-search {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--color-gray);
+            font-size: 1rem;
+        }
+        
+        .search-box input {
+            width: 100%;
+            background: var(--color-dark);
+            border: 2px solid var(--color-secondary-light);
+            border-radius: var(--border-radius);
+            padding: 15px 50px;
+            color: var(--color-white);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--color-primary);
+        }
+        
+        .search-box input::placeholder {
+            color: var(--color-gray);
+        }
+        
+        .clear-search {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--color-gray);
+            cursor: pointer;
+            padding: 5px;
+            transition: var(--transition);
+        }
+        
+        .clear-search:hover {
+            color: var(--color-danger);
+        }
+        
+        .filter-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .filter-tab {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 18px;
+            background: var(--color-dark);
+            border: 2px solid var(--color-secondary-light);
+            border-radius: var(--border-radius);
+            color: var(--color-gray);
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .filter-tab:hover {
+            border-color: var(--color-primary);
+            color: var(--color-white);
+        }
+        
+        .filter-tab.active {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+            border-color: var(--color-primary);
+            color: var(--color-dark);
+        }
+        
+        .filter-tab i {
+            font-size: 1rem;
+        }
+        
+        .section-filter {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .section-filter label {
+            color: var(--color-gray);
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+        
+        .section-filter select {
+            flex: 1;
+            max-width: 400px;
+            background: var(--color-dark);
+            border: 2px solid var(--color-secondary-light);
+            border-radius: var(--border-radius);
+            padding: 12px 40px 12px 15px;
+            color: var(--color-white);
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%236B6B7B' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            background-size: 18px;
+            transition: var(--transition);
+        }
+        
+        .section-filter select:focus {
+            outline: none;
+            border-color: var(--color-primary);
+        }
+        
+        .section-filter select option {
+            background: var(--color-dark);
+            color: var(--color-white);
+        }
+        
+        .active-filters {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(201, 162, 39, 0.1);
+            border: 1px solid rgba(201, 162, 39, 0.3);
+            border-radius: var(--border-radius);
+            padding: 12px 20px;
+            margin-bottom: 25px;
+        }
+        
+        .filter-info {
+            color: var(--color-gray);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .filter-info i {
+            color: var(--color-primary);
+        }
+        
+        .filter-info strong {
+            color: var(--color-white);
+        }
+        
+        .btn-reset-filters {
+            background: transparent;
+            border: 1px solid var(--color-gray);
+            border-radius: var(--border-radius);
+            padding: 8px 15px;
+            color: var(--color-gray);
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: var(--transition);
+        }
+        
+        .btn-reset-filters:hover {
+            border-color: var(--color-danger);
+            color: var(--color-danger);
+        }
+        
         /* Responsive */
         @media (max-width: 768px) {
             .admin-header {
@@ -479,10 +798,61 @@
             .stat-item {
                 width: 100%;
             }
+            
+            .form-actions {
+                flex-direction: column;
+            }
+            
+            .form-actions .btn {
+                width: 100%;
+            }
+            
+            .filter-tabs {
+                gap: 8px;
+            }
+            
+            .filter-tab {
+                padding: 8px 12px;
+                font-size: 0.8rem;
+            }
+            
+            .filter-tab span {
+                display: none;
+            }
+            
+            .section-filter {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .section-filter select {
+                max-width: none;
+            }
+            
+            .active-filters {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Lock Screen -->
+    <div class="lock-screen" id="lockScreen">
+        <div class="lock-box">
+            <i class="fas fa-lock"></i>
+            <h2>Admin Panel</h2>
+            <p>Zadejte heslo pro přístup</p>
+            <div class="error-msg" id="errorMsg">Nesprávné heslo!</div>
+            <input type="password" id="passwordInput" placeholder="Heslo..." autofocus>
+            <button class="btn btn-primary" onclick="checkPassword()" style="width: 100%;">
+                <i class="fas fa-sign-in-alt"></i>
+                Přihlásit se
+            </button>
+        </div>
+    </div>
+
     <!-- Toast Container -->
     <div class="toast-container" id="toastContainer"></div>
     
@@ -522,15 +892,22 @@
             </div>
         </div>
         
-        <!-- Add New Item Form -->
+        <!-- Add/Edit Form -->
         <section>
-            <h2 class="section-title">
+            <h2 class="section-title" id="formTitle">
                 <i class="fas fa-plus-circle"></i>
                 Přidat novou položku
             </h2>
             
-            <div class="form-card">
-                <form id="addItemForm">
+            <div class="form-card" id="formCard">
+                <div class="editing-indicator">
+                    <i class="fas fa-edit"></i>
+                    <span>Upravujete položku - po dokončení klikněte na "Uložit změny"</span>
+                </div>
+                
+                <form id="menuForm">
+                    <input type="hidden" id="editingId" value="">
+                    
                     <div class="form-grid">
                         <div class="form-group">
                             <label for="name">Název jídla *</label>
@@ -543,17 +920,24 @@
                         </div>
                         
                         <div class="form-group">
-                            <label for="category">Kategorie *</label>
+                            <label for="category">Kategorie (TAB) *</label>
                             <select id="category" name="category" required>
                                 <option value="">Vyberte kategorii</option>
-                                <option value="Polévky">Polévky</option>
-                                <option value="Hlavní jídla">Hlavní jídla</option>
-                                <option value="Přílohy">Přílohy</option>
-                                <option value="Saláty">Saláty</option>
-                                <option value="Dezerty">Dezerty</option>
-                                <option value="Nápoje">Nápoje</option>
-                                <option value="Speciality">Speciality</option>
+                                <option value="Nápoje">🥤 Nápoje</option>
+                                <option value="Předkrmy">🧀 Předkrmy</option>
+                                <option value="Speciality">🍽️ Speciality</option>
+                                <option value="Steaky">🥩 Steaky</option>
+                                <option value="Česká klasika">🍲 Česká klasika</option>
+                                <option value="Saláty">🥗 Saláty</option>
                             </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="section">Sekce (žlutý nadpis)</label>
+                            <select id="section" name="section">
+                                <option value="">-- Nejprve vyberte kategorii --</option>
+                            </select>
+                            <small class="form-hint">Sekce se načte podle vybrané kategorie</small>
                         </div>
                         
                         <div class="form-group" style="grid-column: 1 / -1;">
@@ -562,10 +946,16 @@
                         </div>
                     </div>
                     
-                    <button type="submit" class="btn btn-primary" id="submitBtn">
-                        <i class="fas fa-plus"></i>
-                        Přidat položku
-                    </button>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary" id="submitBtn">
+                            <i class="fas fa-plus"></i>
+                            Přidat položku
+                        </button>
+                        <button type="button" class="btn btn-secondary" id="cancelBtn" style="display: none;" onclick="cancelEdit()">
+                            <i class="fas fa-times"></i>
+                            Zrušit úpravu
+                        </button>
+                    </div>
                 </form>
             </div>
         </section>
@@ -577,6 +967,70 @@
                 Aktuální menu
             </h2>
             
+            <!-- Search & Filters -->
+            <div class="filters-container">
+                <!-- Search -->
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Vyhledat položku...">
+                    <button type="button" class="clear-search" id="clearSearch" style="display: none;">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                
+                <!-- Category Tabs -->
+                <div class="filter-tabs" id="categoryTabs">
+                    <button class="filter-tab active" data-category="all">
+                        <i class="fas fa-th-large"></i>
+                        <span>Vše</span>
+                    </button>
+                    <button class="filter-tab" data-category="Nápoje">
+                        <i class="fas fa-beer-mug-empty"></i>
+                        <span>Nápoje</span>
+                    </button>
+                    <button class="filter-tab" data-category="Předkrmy">
+                        <i class="fas fa-cheese"></i>
+                        <span>Předkrmy</span>
+                    </button>
+                    <button class="filter-tab" data-category="Speciality">
+                        <i class="fas fa-fire"></i>
+                        <span>Speciality</span>
+                    </button>
+                    <button class="filter-tab" data-category="Steaky">
+                        <i class="fas fa-bacon"></i>
+                        <span>Steaky</span>
+                    </button>
+                    <button class="filter-tab" data-category="Česká klasika">
+                        <i class="fas fa-bowl-rice"></i>
+                        <span>Česká klasika</span>
+                    </button>
+                    <button class="filter-tab" data-category="Saláty">
+                        <i class="fas fa-leaf"></i>
+                        <span>Saláty</span>
+                    </button>
+                </div>
+                
+                <!-- Section Filter -->
+                <div class="section-filter" id="sectionFilter" style="display: none;">
+                    <label>Sekce (žlutý nadpis):</label>
+                    <select id="sectionSelect">
+                        <option value="all">Všechny sekce</option>
+                    </select>
+                </div>
+            </div>
+            
+            <!-- Active Filters Info -->
+            <div class="active-filters" id="activeFilters" style="display: none;">
+                <span class="filter-info">
+                    <i class="fas fa-filter"></i>
+                    Zobrazeno: <strong id="filteredCount">0</strong> z <strong id="totalCount">0</strong> položek
+                </span>
+                <button type="button" class="btn-reset-filters" id="resetFilters">
+                    <i class="fas fa-times"></i>
+                    Zrušit filtry
+                </button>
+            </div>
+            
             <div id="menuItems">
                 <div class="loading">
                     <i class="fas fa-spinner"></i>
@@ -586,23 +1040,150 @@
     </main>
     
     <script>
-        // Supabase Configuration
+        // ============================================
+        // CONFIGURATION
+        // ============================================
         const SUPABASE_URL = 'https://gsuchnfxkzmitprygbyf.supabase.co';
-        const SUPABASE_KEY = 'sb_publishable_FNjFJwSFzMkRbcgVf0NKuw_TzsIo_z5';
-        const CLIENT_ID = 'restaurace-u-klokone'; // Unique identifier for this restaurant
+        const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdzdWNobmZ4a3ptaXRwcnlnYnlmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzIzMzEyMjQsImV4cCI6MjA4NzkwNzIyNH0.pVzzlzQ6wzgawRLY61KmhsHVui9fzjPcm8kTWQMDVD8';
+        const CLIENT_ID = 'restaurace-u-klokone';
+        const ADMIN_PASSWORD = 'klokon123';
         
-        // Initialize Supabase
-        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+        // Initialize Supabase Client (using 'db' to avoid conflict with window.supabase)
+        const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
         
-        // DOM Elements
-        const addItemForm = document.getElementById('addItemForm');
-        const menuItemsContainer = document.getElementById('menuItems');
+        // ============================================
+        // DOM ELEMENTS
+        // ============================================
+        const lockScreen = document.getElementById('lockScreen');
+        const passwordInput = document.getElementById('passwordInput');
+        const errorMsg = document.getElementById('errorMsg');
+        const menuForm = document.getElementById('menuForm');
+        const formCard = document.getElementById('formCard');
+        const formTitle = document.getElementById('formTitle');
+        const editingIdInput = document.getElementById('editingId');
         const submitBtn = document.getElementById('submitBtn');
+        const cancelBtn = document.getElementById('cancelBtn');
+        const menuItemsContainer = document.getElementById('menuItems');
         const itemCountEl = document.getElementById('itemCount');
         const categoryCountEl = document.getElementById('categoryCount');
         const toastContainer = document.getElementById('toastContainer');
         
-        // Toast Notification
+        // Filter elements
+        const searchInput = document.getElementById('searchInput');
+        const clearSearchBtn = document.getElementById('clearSearch');
+        const categoryTabs = document.querySelectorAll('.filter-tab');
+        const sectionFilter = document.getElementById('sectionFilter');
+        const sectionSelect = document.getElementById('sectionSelect');
+        const activeFiltersDiv = document.getElementById('activeFilters');
+        const filteredCountEl = document.getElementById('filteredCount');
+        const totalCountEl = document.getElementById('totalCount');
+        const resetFiltersBtn = document.getElementById('resetFilters');
+        
+        // Global state
+        let allItems = [];
+        let currentCategory = 'all';
+        let currentSection = 'all';
+        let searchQuery = '';
+        
+        // Section mapping per category
+        const SECTIONS_BY_CATEGORY = {
+            'Nápoje': ['Pivečko čepované', 'Pivečko v lahvi', 'Víno', 'Destiláty', 'Whisky & Rumy', 'Nealkoholické & Teplé nápoje'],
+            'Předkrmy': ['K pivku i vínku'],
+            'Speciality': ['Klokoňovy speciality'],
+            'Steaky': ['Steaky od Klokoně', 'Omáčky ke steakům'],
+            'Česká klasika': ['Klokoňova česká klasika', 'Když to musí být :-)', 'Přílohy', 'Omáčky'],
+            'Saláty': ['Saláty', 'Sladká tečka na konec...']
+        };
+        
+        // Form elements
+        const formCategorySelect = document.getElementById('category');
+        const formSectionSelect = document.getElementById('section');
+        
+        // ============================================
+        // FORM SECTION DROPDOWN - depends on category
+        // ============================================
+        function updateFormSectionOptions(selectedCategory, currentSectionValue = '') {
+            formSectionSelect.innerHTML = '';
+            
+            if (!selectedCategory) {
+                formSectionSelect.innerHTML = '<option value="">-- Nejprve vyberte kategorii --</option>';
+                return;
+            }
+            
+            // Add empty option
+            const emptyOption = document.createElement('option');
+            emptyOption.value = '';
+            emptyOption.textContent = '-- Vyberte sekci --';
+            formSectionSelect.appendChild(emptyOption);
+            
+            // Get sections for this category
+            const sections = SECTIONS_BY_CATEGORY[selectedCategory] || [];
+            
+            sections.forEach(section => {
+                const option = document.createElement('option');
+                option.value = section;
+                option.textContent = section;
+                if (section === currentSectionValue) {
+                    option.selected = true;
+                }
+                formSectionSelect.appendChild(option);
+            });
+            
+            // Add "Jiná sekce..." option for custom input
+            const customOption = document.createElement('option');
+            customOption.value = '__custom__';
+            customOption.textContent = '+ Přidat novou sekci...';
+            formSectionSelect.appendChild(customOption);
+        }
+        
+        // Listen for category change in form
+        formCategorySelect.addEventListener('change', (e) => {
+            updateFormSectionOptions(e.target.value);
+        });
+        
+        // Handle custom section input
+        formSectionSelect.addEventListener('change', (e) => {
+            if (e.target.value === '__custom__') {
+                const customSection = prompt('Zadejte název nové sekce:');
+                if (customSection && customSection.trim()) {
+                    // Add new option and select it
+                    const newOption = document.createElement('option');
+                    newOption.value = customSection.trim();
+                    newOption.textContent = customSection.trim();
+                    newOption.selected = true;
+                    // Insert before "Přidat novou sekci..."
+                    formSectionSelect.insertBefore(newOption, formSectionSelect.lastChild);
+                } else {
+                    // Reset to empty
+                    formSectionSelect.value = '';
+                }
+            }
+        });
+        
+        // ============================================
+        // PASSWORD PROTECTION
+        // ============================================
+        function checkPassword() {
+            const password = passwordInput.value;
+            if (password === ADMIN_PASSWORD) {
+                lockScreen.classList.add('hidden');
+                fetchMenuItems();
+            } else {
+                errorMsg.style.display = 'block';
+                passwordInput.value = '';
+                passwordInput.focus();
+            }
+        }
+        
+        passwordInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                checkPassword();
+            }
+        });
+        
+        // ============================================
+        // TOAST NOTIFICATIONS
+        // ============================================
         function showToast(message, type = 'success') {
             const toast = document.createElement('div');
             toast.className = `toast ${type}`;
@@ -618,10 +1199,12 @@
             }, 3000);
         }
         
-        // Fetch Menu Items
+        // ============================================
+        // FETCH MENU ITEMS
+        // ============================================
         async function fetchMenuItems() {
             try {
-                const { data, error } = await supabase
+                const { data, error } = await db
                     .from('menu_items')
                     .select('*')
                     .eq('client_id', CLIENT_ID)
@@ -629,8 +1212,9 @@
                 
                 if (error) throw error;
                 
-                renderMenuItems(data || []);
-                updateStats(data || []);
+                allItems = data || [];
+                updateStats(allItems);
+                applyFilters();
             } catch (error) {
                 console.error('Error fetching menu items:', error);
                 menuItemsContainer.innerHTML = `
@@ -643,33 +1227,176 @@
             }
         }
         
-        // Render Menu Items
+        // ============================================
+        // FILTER LOGIC
+        // ============================================
+        function applyFilters() {
+            let filtered = [...allItems];
+            
+            // Filter by category
+            if (currentCategory !== 'all') {
+                filtered = filtered.filter(item => item.category === currentCategory);
+            }
+            
+            // Filter by section
+            if (currentSection !== 'all') {
+                filtered = filtered.filter(item => item.section === currentSection);
+            }
+            
+            // Filter by search query
+            if (searchQuery.trim()) {
+                const query = searchQuery.toLowerCase().trim();
+                filtered = filtered.filter(item => 
+                    item.name.toLowerCase().includes(query) ||
+                    (item.description && item.description.toLowerCase().includes(query)) ||
+                    (item.section && item.section.toLowerCase().includes(query))
+                );
+            }
+            
+            // Update UI
+            renderMenuItems(filtered);
+            updateFilterInfo(filtered.length, allItems.length);
+        }
+        
+        function updateFilterInfo(filtered, total) {
+            filteredCountEl.textContent = filtered;
+            totalCountEl.textContent = total;
+            
+            const hasActiveFilter = currentCategory !== 'all' || currentSection !== 'all' || searchQuery.trim();
+            activeFiltersDiv.style.display = hasActiveFilter ? 'flex' : 'none';
+        }
+        
+        function updateSectionOptions() {
+            // Clear existing options
+            sectionSelect.innerHTML = '<option value="all">Všechny sekce</option>';
+            
+            if (currentCategory === 'all') {
+                sectionFilter.style.display = 'none';
+                return;
+            }
+            
+            // Get unique sections from current category items
+            const sectionsInCategory = [...new Set(
+                allItems
+                    .filter(item => item.category === currentCategory && item.section)
+                    .map(item => item.section)
+            )].sort();
+            
+            if (sectionsInCategory.length === 0) {
+                sectionFilter.style.display = 'none';
+                return;
+            }
+            
+            // Add options
+            sectionsInCategory.forEach(section => {
+                const option = document.createElement('option');
+                option.value = section;
+                option.textContent = section;
+                sectionSelect.appendChild(option);
+            });
+            
+            sectionFilter.style.display = 'flex';
+        }
+        
+        // ============================================
+        // FILTER EVENT LISTENERS
+        // ============================================
+        // Search
+        searchInput.addEventListener('input', (e) => {
+            searchQuery = e.target.value;
+            clearSearchBtn.style.display = searchQuery ? 'block' : 'none';
+            applyFilters();
+        });
+        
+        clearSearchBtn.addEventListener('click', () => {
+            searchInput.value = '';
+            searchQuery = '';
+            clearSearchBtn.style.display = 'none';
+            applyFilters();
+        });
+        
+        // Category tabs
+        categoryTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                categoryTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                currentCategory = tab.dataset.category;
+                currentSection = 'all';
+                sectionSelect.value = 'all';
+                
+                updateSectionOptions();
+                applyFilters();
+            });
+        });
+        
+        // Section select
+        sectionSelect.addEventListener('change', (e) => {
+            currentSection = e.target.value;
+            applyFilters();
+        });
+        
+        // Reset filters
+        resetFiltersBtn.addEventListener('click', () => {
+            searchInput.value = '';
+            searchQuery = '';
+            clearSearchBtn.style.display = 'none';
+            
+            currentCategory = 'all';
+            currentSection = 'all';
+            
+            categoryTabs.forEach(t => t.classList.remove('active'));
+            document.querySelector('.filter-tab[data-category="all"]').classList.add('active');
+            
+            sectionFilter.style.display = 'none';
+            sectionSelect.value = 'all';
+            
+            applyFilters();
+        });
+        
+        // ============================================
+        // RENDER MENU ITEMS
+        // ============================================
         function renderMenuItems(items) {
             if (items.length === 0) {
+                const hasFilters = currentCategory !== 'all' || currentSection !== 'all' || searchQuery.trim();
                 menuItemsContainer.innerHTML = `
                     <div class="empty-state">
-                        <i class="fas fa-utensils"></i>
-                        <h3>Žádné položky</h3>
-                        <p>Zatím nemáte v menu žádné položky. Přidejte první pomocí formuláře výše.</p>
+                        <i class="fas ${hasFilters ? 'fa-search' : 'fa-utensils'}"></i>
+                        <h3>${hasFilters ? 'Žádné výsledky' : 'Žádné položky'}</h3>
+                        <p>${hasFilters ? 'Zkuste změnit filtry nebo vyhledávání.' : 'Zatím nemáte v menu žádné položky. Přidejte první pomocí formuláře výše.'}</p>
                     </div>
                 `;
                 return;
             }
             
+            const categoryIcons = {
+                'Nápoje': 'fa-glass-water',
+                'Předkrmy': 'fa-cheese',
+                'Speciality': 'fa-bowl-food',
+                'Steaky': 'fa-drumstick-bite',
+                'Česká klasika': 'fa-bowl-food',
+                'Saláty': 'fa-leaf'
+            };
+            
             const html = `
                 <div class="menu-grid">
                     ${items.map(item => `
-                        <div class="menu-item-card" data-id="${item.id}">
+                        <div class="menu-item-card" data-id="${item.id}" data-category="${escapeHtml(item.category)}" data-section="${escapeHtml(item.section || '')}">
                             <div class="menu-item-header">
-                                <h3 class="menu-item-name">${escapeHtml(item.name)}</h3>
+                                <h3 class="menu-item-name">${highlightSearch(escapeHtml(item.name))}</h3>
                                 <span class="menu-item-price">${item.price} Kč</span>
                             </div>
                             <span class="menu-item-category">
-                                <i class="fas fa-tag"></i>
-                                ${escapeHtml(item.category)}
+                                <i class="fas ${categoryIcons[item.category] || 'fa-tag'}"></i>
+                                ${escapeHtml(item.category)}${item.section ? ' → ' + escapeHtml(item.section) : ''}
                             </span>
-                            <p class="menu-item-description">${item.description ? escapeHtml(item.description) : '<em>Bez popisu</em>'}</p>
+                            <p class="menu-item-description">${item.description ? highlightSearch(escapeHtml(item.description)) : '<em>Bez popisu</em>'}</p>
                             <div class="menu-item-actions">
+                                <button class="btn btn-warning" onclick='editItem(${JSON.stringify(item).replace(/'/g, "\\'")})'>
+                                    <i class="fas fa-edit"></i>
+                                    Upravit
+                                </button>
                                 <button class="btn btn-danger" onclick="deleteItem(${item.id})">
                                     <i class="fas fa-trash"></i>
                                     Smazat
@@ -683,67 +1410,147 @@
             menuItemsContainer.innerHTML = html;
         }
         
-        // Update Stats
+        // Highlight search query in text
+        function highlightSearch(text) {
+            if (!searchQuery.trim()) return text;
+            const query = searchQuery.trim();
+            const regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+            return text.replace(regex, '<mark style="background: var(--color-primary); color: var(--color-dark); padding: 0 2px; border-radius: 2px;">$1</mark>');
+        }
+        
+        // ============================================
+        // UPDATE STATS
+        // ============================================
         function updateStats(items) {
             itemCountEl.textContent = items.length;
             const categories = new Set(items.map(item => item.category));
             categoryCountEl.textContent = categories.size;
         }
         
-        // Escape HTML
+        // ============================================
+        // ESCAPE HTML
+        // ============================================
         function escapeHtml(text) {
+            if (!text) return '';
             const div = document.createElement('div');
             div.textContent = text;
             return div.innerHTML;
         }
         
-        // Add New Item
-        addItemForm.addEventListener('submit', async (e) => {
+        // ============================================
+        // ADD / UPDATE ITEM (FORM SUBMIT)
+        // ============================================
+        menuForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             
-            const formData = new FormData(addItemForm);
-            const newItem = {
+            const formData = new FormData(menuForm);
+            const editingId = editingIdInput.value;
+            
+            const itemData = {
                 name: formData.get('name').trim(),
                 description: formData.get('description').trim(),
                 price: parseInt(formData.get('price')),
                 category: formData.get('category'),
+                section: formData.get('section')?.trim() || null,
                 client_id: CLIENT_ID
             };
             
-            if (!newItem.name || !newItem.price || !newItem.category) {
+            if (!itemData.name || !itemData.price || !itemData.category) {
                 showToast('Vyplňte všechna povinná pole', 'error');
                 return;
             }
             
             submitBtn.disabled = true;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Přidávám...';
             
             try {
-                const { data, error } = await supabase
-                    .from('menu_items')
-                    .insert([newItem])
-                    .select();
+                if (editingId) {
+                    // UPDATE existing item
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Ukládám...';
+                    
+                    const { error } = await db
+                        .from('menu_items')
+                        .update(itemData)
+                        .eq('id', parseInt(editingId))
+                        .eq('client_id', CLIENT_ID);
+                    
+                    if (error) throw error;
+                    
+                    showToast('Položka byla úspěšně upravena');
+                    cancelEdit();
+                } else {
+                    // INSERT new item
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Přidávám...';
+                    
+                    const { error } = await db
+                        .from('menu_items')
+                        .insert([itemData]);
+                    
+                    if (error) throw error;
+                    
+                    showToast('Položka byla úspěšně přidána');
+                    menuForm.reset();
+                }
                 
-                if (error) throw error;
-                
-                showToast('Položka byla úspěšně přidána');
-                addItemForm.reset();
                 fetchMenuItems();
             } catch (error) {
-                console.error('Error adding item:', error);
-                showToast('Chyba při přidávání položky: ' + error.message, 'error');
+                console.error('Error saving item:', error);
+                showToast('Chyba: ' + error.message, 'error');
             } finally {
                 submitBtn.disabled = false;
-                submitBtn.innerHTML = '<i class="fas fa-plus"></i> Přidat položku';
+                if (!editingIdInput.value) {
+                    submitBtn.innerHTML = '<i class="fas fa-plus"></i> Přidat položku';
+                }
             }
         });
         
-        // Delete Item
+        // ============================================
+        // EDIT ITEM
+        // ============================================
+        function editItem(item) {
+            // Set form to edit mode
+            editingIdInput.value = item.id;
+            document.getElementById('name').value = item.name || '';
+            document.getElementById('description').value = item.description || '';
+            document.getElementById('price').value = item.price || '';
+            document.getElementById('category').value = item.category || '';
+            
+            // Update section dropdown based on category, then select the item's section
+            updateFormSectionOptions(item.category, item.section || '');
+            
+            // Update UI
+            formCard.classList.add('editing');
+            formTitle.innerHTML = '<i class="fas fa-edit"></i> Upravit položku';
+            submitBtn.innerHTML = '<i class="fas fa-save"></i> Uložit změny';
+            cancelBtn.style.display = 'inline-flex';
+            
+            // Scroll to form
+            formCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        
+        // ============================================
+        // CANCEL EDIT
+        // ============================================
+        function cancelEdit() {
+            editingIdInput.value = '';
+            menuForm.reset();
+            
+            // Reset section dropdown
+            formSectionSelect.innerHTML = '<option value="">-- Nejprve vyberte kategorii --</option>';
+            
+            formCard.classList.remove('editing');
+            formTitle.innerHTML = '<i class="fas fa-plus-circle"></i> Přidat novou položku';
+            submitBtn.innerHTML = '<i class="fas fa-plus"></i> Přidat položku';
+            cancelBtn.style.display = 'none';
+        }
+        
+        // ============================================
+        // DELETE ITEM
+        // ============================================
         async function deleteItem(id) {
             if (!confirm('Opravdu chcete smazat tuto položku?')) return;
             
             try {
-                const { error } = await supabase
+                const { error } = await db
                     .from('menu_items')
                     .delete()
                     .eq('id', id)
@@ -758,9 +1565,6 @@
                 showToast('Chyba při mazání: ' + error.message, 'error');
             }
         }
-        
-        // Initial Load
-        fetchMenuItems();
     </script>
 </body>
 </html>
