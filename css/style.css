@@ -42,22 +42,38 @@
     box-sizing: border-box;
 }
 
-/* KOMPLETNÍ RESET SCROLLBARŮ - odstraní všechny custom scrollbary */
-/* Žádný element kromě html nesmí mít viditelný scrollbar */
-*:not(html):not(body) {
-    scrollbar-width: none !important;
-    -ms-overflow-style: none !important;
-}
-*:not(html):not(body)::-webkit-scrollbar {
-    display: none !important;
-    width: 0 !important;
-    height: 0 !important;
-}
-
-/* Hlavní scrollbar - systémový výchozí */
-html {
-    scrollbar-width: auto;
-    scrollbar-color: auto;
+/* KOMPLETNÍ ODSTRANĚNÍ INTERNÍHO SCROLLOVÁNÍ */
+/* Žádný element nesmí mít vlastní scroll - vše scrolluje hlavní stránka */
+section,
+.container,
+.menu-section,
+.gallery-section,
+.about-section,
+.contact-section,
+.akce-section,
+.denni-menu-section,
+.philosophy-section,
+.team-section,
+.events-section,
+.page-header,
+.footer,
+.menu-content,
+.menu-panel,
+.menu-grid,
+.gallery-grid,
+.akce-grid,
+.denni-menu-grid,
+.about-preview,
+.about-preview-grid,
+.section-header,
+div[class*="-section"],
+div[class*="-grid"],
+div[class*="-content"] {
+    overflow: visible !important;
+    overflow-x: visible !important;
+    overflow-y: visible !important;
+    max-height: none !important;
+    height: auto !important;
 }
 
 /* Base HTML/Body */
@@ -100,11 +116,9 @@ img {
     margin: 0 auto;
     padding: 0 20px;
     width: 100%;
-    overflow-x: hidden;
 }
 
 section {
-    overflow-x: hidden;
     width: 100%;
 }
 
