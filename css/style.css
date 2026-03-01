@@ -98,16 +98,11 @@ html {
     scrollbar-color: #C9A227 #0F0F1A;
 }
 
-/* Skrýt scrollbary na všech ostatních elementech - ale NEBLOKOVAT scroll stránky */
+/* Skrýt VIZUÁLNÍ scrollbary na ostatních elementech (ne blokovat scroll!) */
 *:not(html):not(body)::-webkit-scrollbar {
-    display: none !important;
-    width: 0 !important;
-    height: 0 !important;
-}
-
-/* Firefox scrollbar - skrýt všude kromě html/body */
-*:not(html):not(body) {
-    scrollbar-width: none !important;
+    width: 0;
+    height: 0;
+    background: transparent;
 }
 
 a {
@@ -635,6 +630,8 @@ section {
 .denni-menu-section {
     background: var(--color-dark);
     position: relative;
+    touch-action: pan-y;
+    -webkit-overflow-scrolling: touch;
 }
 
 .denni-menu-section::before {
@@ -808,6 +805,8 @@ section {
    ========================================== */
 .menu-section {
     background: var(--gradient-dark);
+    touch-action: pan-y;
+    -webkit-overflow-scrolling: touch;
 }
 
 .menu-tabs {
@@ -845,11 +844,13 @@ section {
 
 .menu-panel {
     display: none;
+    touch-action: pan-y;
 }
 
 .menu-panel.active {
     display: block;
     animation: fadeIn 0.5s ease;
+    touch-action: pan-y;
 }
 
 @keyframes fadeIn {
