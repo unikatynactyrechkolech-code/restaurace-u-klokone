@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel | Restaurace U Klokoně</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Supabase JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    
+    <style>
+        :root {
+            --color-primary: #C9A227;
+            --color-primary-dark: #A8871E;
+            --color-primary-light: #E5C65C;
+            --color-secondary: #1A1A2E;
+            --color-secondary-light: #252540;
+            --color-accent: #D4AF37;
+            --color-dark: #0F0F1A;
+            --color-white: #FFFFFF;
+            --color-gray: #6B6B7B;
+            --color-success: #22C55E;
+            --color-danger: #EF4444;
+            
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Poppins', sans-serif;
+            
+            --shadow-md: 0 5px 20px rgba(0, 0, 0, 0.15);
+            --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.2);
+            --shadow-gold: 0 5px 30px rgba(201, 162, 39, 0.3);
+            
+            --border-radius: 12px;
+            --border-radius-lg: 24px;
+            
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-dark);
+            color: var(--color-white);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+        
+        /* Header */
+        .admin-header {
+            background: var(--color-secondary);
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(201, 162, 39, 0.2);
+        }
+        
+        .admin-logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .admin-logo i {
+            color: var(--color-primary);
+            font-size: 1.5rem;
+        }
+        
+        .admin-logo h1 {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .admin-logo span {
+            color: var(--color-primary);
+        }
+        
+        .back-link {
+            color: var(--color-gray);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+        
+        .back-link:hover {
+            color: var(--color-primary);
+        }
+        
+        /* Main Container */
+        .admin-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        /* Section Title */
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .section-title i {
+            color: var(--color-primary);
+        }
+        
+        /* Add Form Card */
+        .form-card {
+            background: var(--color-secondary);
+            border-radius: var(--border-radius-lg);
+            padding: 40px;
+            margin-bottom: 50px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid rgba(201, 162, 39, 0.1);
+        }
+        
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .form-group label {
+            font-size: 0.9rem;
+            color: var(--color-gray);
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            background: var(--color-dark);
+            border: 2px solid var(--color-secondary-light);
+            border-radius: var(--border-radius);
+            padding: 15px 20px;
+            color: var(--color-white);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(201, 162, 39, 0.1);
+        }
+        
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        .form-group select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%236B6B7B' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            background-size: 18px;
+            padding-right: 50px;
+        }
+        
+        .form-group select option {
+            background: var(--color-dark);
+            color: var(--color-white);
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 15px 35px;
+            border-radius: var(--border-radius);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+            color: var(--color-dark);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-gold);
+        }
+        
+        .btn-primary:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .btn-danger {
+            background: var(--color-danger);
+            color: var(--color-white);
+            padding: 10px 20px;
+            font-size: 0.9rem;
+        }
+        
+        .btn-danger:hover {
+            background: #DC2626;
+            transform: translateY(-2px);
+        }
+        
+        /* Menu Items Grid */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+        }
+        
+        .menu-item-card {
+            background: var(--color-secondary);
+            border-radius: var(--border-radius-lg);
+            padding: 30px;
+            border: 1px solid rgba(201, 162, 39, 0.1);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .menu-item-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-accent) 100%);
+        }
+        
+        .menu-item-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(201, 162, 39, 0.3);
+        }
+        
+        .menu-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .menu-item-name {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--color-white);
+        }
+        
+        .menu-item-price {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+            color: var(--color-dark);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 1rem;
+            white-space: nowrap;
+        }
+        
+        .menu-item-category {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--color-dark);
+            color: var(--color-primary);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+        
+        .menu-item-description {
+            color: var(--color-gray);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .menu-item-actions {
+            display: flex;
+            justify-content: flex-end;
+        }
+        
+        /* Loading State */
+        .loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px;
+            color: var(--color-gray);
+        }
+        
+        .loading i {
+            font-size: 2rem;
+            color: var(--color-primary);
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 80px 20px;
+            color: var(--color-gray);
+        }
+        
+        .empty-state i {
+            font-size: 4rem;
+            color: var(--color-secondary-light);
+            margin-bottom: 20px;
+        }
+        
+        .empty-state h3 {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: var(--color-white);
+            margin-bottom: 10px;
+        }
+        
+        /* Toast Notifications */
+        .toast-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .toast {
+            background: var(--color-secondary);
+            border-radius: var(--border-radius);
+            padding: 15px 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: var(--shadow-lg);
+            animation: slideIn 0.3s ease;
+            border-left: 4px solid var(--color-success);
+        }
+        
+        .toast.error {
+            border-left-color: var(--color-danger);
+        }
+        
+        .toast i {
+            font-size: 1.2rem;
+        }
+        
+        .toast.success i {
+            color: var(--color-success);
+        }
+        
+        .toast.error i {
+            color: var(--color-danger);
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        /* Stats Bar */
+        .stats-bar {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            background: var(--color-secondary);
+            border-radius: var(--border-radius);
+            padding: 25px 35px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            border: 1px solid rgba(201, 162, 39, 0.1);
+        }
+        
+        .stat-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .stat-icon i {
+            font-size: 1.5rem;
+            color: var(--color-dark);
+        }
+        
+        .stat-content h4 {
+            font-size: 2rem;
+            font-family: var(--font-heading);
+            color: var(--color-white);
+            line-height: 1;
+        }
+        
+        .stat-content p {
+            color: var(--color-gray);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .admin-header {
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .form-card {
+                padding: 25px;
+            }
+            
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .menu-item-header {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .stats-bar {
+                flex-direction: column;
+            }
+            
+            .stat-item {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Toast Container -->
+    <div class="toast-container" id="toastContainer"></div>
+    
+    <!-- Header -->
+    <header class="admin-header">
+        <div class="admin-logo">
+            <i class="fas fa-utensils"></i>
+            <h1>Admin Panel | <span>U Klokoně</span></h1>
+        </div>
+        <a href="index.html" class="back-link">
+            <i class="fas fa-arrow-left"></i>
+            Zpět na web
+        </a>
+    </header>
+    
+    <!-- Main Content -->
+    <main class="admin-container">
+        <!-- Stats -->
+        <div class="stats-bar">
+            <div class="stat-item">
+                <div class="stat-icon">
+                    <i class="fas fa-bowl-food"></i>
+                </div>
+                <div class="stat-content">
+                    <h4 id="itemCount">0</h4>
+                    <p>Položek v menu</p>
+                </div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon">
+                    <i class="fas fa-tags"></i>
+                </div>
+                <div class="stat-content">
+                    <h4 id="categoryCount">0</h4>
+                    <p>Kategorií</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Add New Item Form -->
+        <section>
+            <h2 class="section-title">
+                <i class="fas fa-plus-circle"></i>
+                Přidat novou položku
+            </h2>
+            
+            <div class="form-card">
+                <form id="addItemForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="name">Název jídla *</label>
+                            <input type="text" id="name" name="name" placeholder="Např. Svíčková na smetaně" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="price">Cena (Kč) *</label>
+                            <input type="number" id="price" name="price" placeholder="189" min="0" step="1" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="category">Kategorie *</label>
+                            <select id="category" name="category" required>
+                                <option value="">Vyberte kategorii</option>
+                                <option value="Polévky">Polévky</option>
+                                <option value="Hlavní jídla">Hlavní jídla</option>
+                                <option value="Přílohy">Přílohy</option>
+                                <option value="Saláty">Saláty</option>
+                                <option value="Dezerty">Dezerty</option>
+                                <option value="Nápoje">Nápoje</option>
+                                <option value="Speciality">Speciality</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group" style="grid-column: 1 / -1;">
+                            <label for="description">Popis</label>
+                            <textarea id="description" name="description" placeholder="Krátký popis jídla, použité ingredience..."></textarea>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" id="submitBtn">
+                        <i class="fas fa-plus"></i>
+                        Přidat položku
+                    </button>
+                </form>
+            </div>
+        </section>
+        
+        <!-- Menu Items List -->
+        <section>
+            <h2 class="section-title">
+                <i class="fas fa-list"></i>
+                Aktuální menu
+            </h2>
+            
+            <div id="menuItems">
+                <div class="loading">
+                    <i class="fas fa-spinner"></i>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <script>
+        // Supabase Configuration
+        const SUPABASE_URL = 'https://gsuchnfxkzmitprygbyf.supabase.co';
+        const SUPABASE_KEY = 'sb_publishable_FNjFJwSFzMkRbcgVf0NKuw_TzsIo_z5';
+        const CLIENT_ID = 'restaurace-u-klokone'; // Unique identifier for this restaurant
+        
+        // Initialize Supabase
+        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+        
+        // DOM Elements
+        const addItemForm = document.getElementById('addItemForm');
+        const menuItemsContainer = document.getElementById('menuItems');
+        const submitBtn = document.getElementById('submitBtn');
+        const itemCountEl = document.getElementById('itemCount');
+        const categoryCountEl = document.getElementById('categoryCount');
+        const toastContainer = document.getElementById('toastContainer');
+        
+        // Toast Notification
+        function showToast(message, type = 'success') {
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            toast.innerHTML = `
+                <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i>
+                <span>${message}</span>
+            `;
+            toastContainer.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.style.animation = 'slideIn 0.3s ease reverse';
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+        
+        // Fetch Menu Items
+        async function fetchMenuItems() {
+            try {
+                const { data, error } = await supabase
+                    .from('menu_items')
+                    .select('*')
+                    .eq('client_id', CLIENT_ID)
+                    .order('category', { ascending: true });
+                
+                if (error) throw error;
+                
+                renderMenuItems(data || []);
+                updateStats(data || []);
+            } catch (error) {
+                console.error('Error fetching menu items:', error);
+                menuItemsContainer.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <h3>Chyba při načítání</h3>
+                        <p>${error.message}</p>
+                    </div>
+                `;
+            }
+        }
+        
+        // Render Menu Items
+        function renderMenuItems(items) {
+            if (items.length === 0) {
+                menuItemsContainer.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-utensils"></i>
+                        <h3>Žádné položky</h3>
+                        <p>Zatím nemáte v menu žádné položky. Přidejte první pomocí formuláře výše.</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            const html = `
+                <div class="menu-grid">
+                    ${items.map(item => `
+                        <div class="menu-item-card" data-id="${item.id}">
+                            <div class="menu-item-header">
+                                <h3 class="menu-item-name">${escapeHtml(item.name)}</h3>
+                                <span class="menu-item-price">${item.price} Kč</span>
+                            </div>
+                            <span class="menu-item-category">
+                                <i class="fas fa-tag"></i>
+                                ${escapeHtml(item.category)}
+                            </span>
+                            <p class="menu-item-description">${item.description ? escapeHtml(item.description) : '<em>Bez popisu</em>'}</p>
+                            <div class="menu-item-actions">
+                                <button class="btn btn-danger" onclick="deleteItem(${item.id})">
+                                    <i class="fas fa-trash"></i>
+                                    Smazat
+                                </button>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+            
+            menuItemsContainer.innerHTML = html;
+        }
+        
+        // Update Stats
+        function updateStats(items) {
+            itemCountEl.textContent = items.length;
+            const categories = new Set(items.map(item => item.category));
+            categoryCountEl.textContent = categories.size;
+        }
+        
+        // Escape HTML
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+        
+        // Add New Item
+        addItemForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formData = new FormData(addItemForm);
+            const newItem = {
+                name: formData.get('name').trim(),
+                description: formData.get('description').trim(),
+                price: parseInt(formData.get('price')),
+                category: formData.get('category'),
+                client_id: CLIENT_ID
+            };
+            
+            if (!newItem.name || !newItem.price || !newItem.category) {
+                showToast('Vyplňte všechna povinná pole', 'error');
+                return;
+            }
+            
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Přidávám...';
+            
+            try {
+                const { data, error } = await supabase
+                    .from('menu_items')
+                    .insert([newItem])
+                    .select();
+                
+                if (error) throw error;
+                
+                showToast('Položka byla úspěšně přidána');
+                addItemForm.reset();
+                fetchMenuItems();
+            } catch (error) {
+                console.error('Error adding item:', error);
+                showToast('Chyba při přidávání položky: ' + error.message, 'error');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="fas fa-plus"></i> Přidat položku';
+            }
+        });
+        
+        // Delete Item
+        async function deleteItem(id) {
+            if (!confirm('Opravdu chcete smazat tuto položku?')) return;
+            
+            try {
+                const { error } = await supabase
+                    .from('menu_items')
+                    .delete()
+                    .eq('id', id)
+                    .eq('client_id', CLIENT_ID);
+                
+                if (error) throw error;
+                
+                showToast('Položka byla smazána');
+                fetchMenuItems();
+            } catch (error) {
+                console.error('Error deleting item:', error);
+                showToast('Chyba při mazání: ' + error.message, 'error');
+            }
+        }
+        
+        // Initial Load
+        fetchMenuItems();
+    </script>
+</body>
+</html>
