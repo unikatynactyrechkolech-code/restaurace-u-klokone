@@ -11,16 +11,13 @@ window.addEventListener('load', () => {
     }, 500);
 });
 
-// Initialize AOS (Animate On Scroll) - disabled on mobile for better performance
+// Initialize AOS (Animate On Scroll)
 document.addEventListener('DOMContentLoaded', () => {
-    const isMobile = window.innerWidth <= 768;
-    
     AOS.init({
-        duration: isMobile ? 0 : 600,
+        duration: 600,
         easing: 'ease-out',
         once: true,
         offset: 30,
-        disable: isMobile, // Disable AOS completely on mobile
         anchorPlacement: 'top-bottom'
     });
 });

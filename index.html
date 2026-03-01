@@ -477,7 +477,7 @@
                         }
                     }
 
-                    html += '<div class="menu-card" data-aos="fade-up">';
+                    html += '<div class="menu-card">';
                     html += '<div class="menu-card-header">';
                     html += '<i class="fas ' + icon + '"></i>';
                     html += '<h3>' + esc(sectionName) + '</h3>';
@@ -506,11 +506,6 @@
                 }
 
                 grid.innerHTML = html;
-            }
-
-            // Refresh AOS
-            if (typeof AOS !== 'undefined') {
-                AOS.refresh();
             }
         }
 
