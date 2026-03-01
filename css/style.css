@@ -42,6 +42,24 @@
     box-sizing: border-box;
 }
 
+/* KOMPLETNÍ RESET SCROLLBARŮ - odstraní všechny custom scrollbary */
+/* Žádný element kromě html nesmí mít viditelný scrollbar */
+*:not(html):not(body) {
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+}
+*:not(html):not(body)::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+}
+
+/* Hlavní scrollbar - systémový výchozí */
+html {
+    scrollbar-width: auto;
+    scrollbar-color: auto;
+}
+
 /* Base HTML/Body */
 html {
     scroll-behavior: smooth;
