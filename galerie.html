@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Galerie - Restaurace U Klokoně. Prohlédněte si fotky z naší restaurace, jídel a atmosféry.">
+    <title>Galerie | Restaurace U Klokoně</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="loader-inner"></div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-text">U Klokoně</span>
+            </a>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html" class="nav-link">Domů</a></li>
+                <li><a href="index.html#menu" class="nav-link">Menu</a></li>
+                <li><a href="index.html#denni-menu" class="nav-link">Denní menu</a></li>
+                <li><a href="o-nas.html" class="nav-link">O nás</a></li>
+                <li><a href="galerie.html" class="nav-link active">Galerie</a></li>
+                <li><a href="kontakt.html" class="nav-link">Kontakt</a></li>
+                <li><a href="kontakt.html#rezervace" class="nav-link btn-rezervace">Rezervace</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header" style="background-image: url('https://images.unsplash.com/photo-1552566626-52f8b828add9?w=1920');">
+        <div class="page-header-overlay"></div>
+        <div class="page-header-content" data-aos="fade-up">
+            <span class="section-subtitle">Naše prostory</span>
+            <h1>Fotogalerie</h1>
+            <div class="breadcrumb">
+                <a href="index.html">Domů</a>
+                <span>/</span>
+                <span>Galerie</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-subtitle">Nahlédněte k nám</span>
+                <h2 class="section-title">Jak to u nás vypadá</h2>
+                <p class="section-description">
+                    Prohlédněte si fotografie z naší restaurace, naše jídla a atmosféru, 
+                    která na vás čeká při každé návštěvě.
+                </p>
+            </div>
+            
+            <!-- Gallery Filter -->
+            <div class="gallery-filter" data-aos="fade-up">
+                <button class="menu-tab active" data-filter="all">
+                    <i class="fas fa-th"></i>
+                    <span>Vše</span>
+                </button>
+                <button class="menu-tab" data-filter="interior">
+                    <i class="fas fa-chair"></i>
+                    <span>Interiér</span>
+                </button>
+                <button class="menu-tab" data-filter="food">
+                    <i class="fas fa-utensils"></i>
+                    <span>Jídla</span>
+                </button>
+                <button class="menu-tab" data-filter="drinks">
+                    <i class="fas fa-beer-mug-empty"></i>
+                    <span>Nápoje</span>
+                </button>
+            </div>
+
+            <div class="gallery-grid">
+                <!-- Interior Images -->
+                <div class="gallery-item" data-category="interior" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800" alt="Interiér restaurace">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="food" data-aos="fade-up" data-aos-delay="150">
+                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=600" alt="Steak">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="interior" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600" alt="Restaurace">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="drinks" data-aos="fade-up" data-aos-delay="250">
+                    <img src="https://images.unsplash.com/photo-1535958636474-b021ee887b13?w=600" alt="Pivo">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="food" data-aos="fade-up" data-aos-delay="300">
+                    <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?w=600" alt="Burger">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="interior" data-aos="fade-up" data-aos-delay="350">
+                    <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800" alt="Bar">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="food" data-aos="fade-up" data-aos-delay="400">
+                    <img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=600" alt="Řízek">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="drinks" data-aos="fade-up" data-aos-delay="450">
+                    <img src="https://images.unsplash.com/photo-1566633806327-68e152aaf26d?w=600" alt="Víno">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="food" data-aos="fade-up" data-aos-delay="500">
+                    <img src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=600" alt="Kachna">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="interior" data-aos="fade-up" data-aos-delay="550">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600" alt="Stoly">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="food" data-aos="fade-up" data-aos-delay="600">
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600" alt="Pizza">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="drinks" data-aos="fade-up" data-aos-delay="650">
+                    <img src="https://images.unsplash.com/photo-1551538827-9c037cb4f32a?w=600" alt="Koktejl">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-subtitle">Virtuální prohlídka</span>
+                <h2 class="section-title">Přijďte se podívat</h2>
+            </div>
+            <div class="video-container" data-aos="fade-up">
+                <div class="video-wrapper">
+                    <img src="https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=1200" alt="Video náhled">
+                    <div class="video-overlay">
+                        <a href="#" class="play-button">
+                            <i class="fas fa-play"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <p class="video-section-text" data-aos="fade-up">
+                Věříme, že se Vám naše restaurace líbí a že nás brzy navštívíte. Těšíme se na shledanou!
+            </p>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="contact-cta">
+        <div class="container">
+            <div class="cta-content" data-aos="fade-up">
+                <h2>Rezervujte si stůl</h2>
+                <p>Přijďte si vychutnat atmosféru a vynikající jídlo</p>
+                <div class="cta-buttons">
+                    <a href="tel:+420272654205" class="btn btn-primary btn-large">
+                        <i class="fas fa-phone"></i>
+                        <span>+420 272 654 205</span>
+                    </a>
+                    <a href="kontakt.html" class="btn btn-secondary btn-large">
+                        <i class="fas fa-envelope"></i>
+                        <span>Napište nám</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3 class="footer-logo">U Klokoně</h3>
+                    <p>Znovuzrozená vršovická legenda. Tradiční česká kuchyně v moderním pojetí.</p>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/restauraceuklokone" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigace</h4>
+                    <ul>
+                        <li><a href="index.html">Domů</a></li>
+                        <li><a href="index.html#menu">Menu</a></li>
+                        <li><a href="o-nas.html">O nás</a></li>
+                        <li><a href="galerie.html">Galerie</a></li>
+                        <li><a href="kontakt.html">Kontakt</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Otevírací doba</h4>
+                    <ul class="opening-hours">
+                        <li><span>Pondělí - Čtvrtek</span><span>11:00 - 23:00</span></li>
+                        <li><span>Pátek - Sobota</span><span>11:00 - 00:00</span></li>
+                        <li><span>Neděle</span><span>11:00 - 23:00</span></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Kontakt</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> 28. pluku 456, Praha 10, Vršovice</li>
+                        <li><i class="fas fa-phone"></i> +420 272 654 205</li>
+                        <li><i class="fas fa-envelope"></i> info@restauraceuklokone.cz</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Restaurace U Klokoně. Všechna práva vyhrazena.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox -->
+    <div class="lightbox">
+        <span class="lightbox-close"><i class="fas fa-times"></i></span>
+        <img src="" alt="Lightbox image">
+    </div>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Gallery Filter
+        const filterButtons = document.querySelectorAll('.gallery-filter .menu-tab');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const filter = button.dataset.filter;
+                
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                galleryItems.forEach(item => {
+                    if (filter === 'all' || item.dataset.category === filter) {
+                        item.style.display = 'block';
+                        item.style.animation = 'fadeIn 0.5s ease';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

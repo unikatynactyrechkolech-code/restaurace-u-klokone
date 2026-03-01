@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Restaurace U Klokoně - Znovuzrozená vršovická legenda. Tradiční česká kuchyně v moderním pojetí.">
+    <title>Restaurace U Klokoně | Praha 10 Vršovice</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="loader-inner"></div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-text">U Klokoně</span>
+            </a>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html" class="nav-link active">Domů</a></li>
+                <li><a href="#menu" class="nav-link">Menu</a></li>
+                <li><a href="#denni-menu" class="nav-link">Denní menu</a></li>
+                <li><a href="o-nas.html" class="nav-link">O nás</a></li>
+                <li><a href="galerie.html" class="nav-link">Galerie</a></li>
+                <li><a href="kontakt.html" class="nav-link">Kontakt</a></li>
+                <li><a href="#rezervace" class="nav-link btn-rezervace">Rezervace</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero" id="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content" data-aos="fade-up" data-aos-duration="1200">
+            <span class="hero-subtitle">Znovuzrozená vršovická legenda</span>
+            <h1 class="hero-title">Uspokojíme všechny<br><span class="highlight">chuťové buňky</span></h1>
+            <p class="hero-description">Nový provozovatel, nový jídelní lístek, nový zážitek.<br>Přijďte a přesvědčte se sami!</p>
+            <div class="hero-buttons">
+                <a href="#menu" class="btn btn-primary">
+                    <span>Naše menu</span>
+                    <i class="fas fa-utensils"></i>
+                </a>
+                <a href="kontakt.html#rezervace" class="btn btn-secondary">
+                    <span>Rezervovat stůl</span>
+                    <i class="fas fa-calendar-check"></i>
+                </a>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <a href="#akce">
+                <span>Srolujte dolů</span>
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </div>
+    </header>
+
+    <!-- Akce Section -->
+    <section class="akce-section" id="akce">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-subtitle">Nenechte si ujít</span>
+                <h2 class="section-title">Aktuální akce</h2>
+            </div>
+            <div class="akce-grid">
+                <div class="akce-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="akce-card-image">
+                        <img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=600" alt="Festival smažených řízků">
+                        <div class="akce-badge">Aktuálně</div>
+                    </div>
+                    <div class="akce-card-content">
+                        <h3>Festival smažených řízků</h3>
+                        <p class="akce-date"><i class="fas fa-calendar-alt"></i> 27.2 - 1.3 2026</p>
+                        <ul class="akce-list">
+                            <li>Smažený řízek z vepřové krkovičky potřené hořčicí <span>199,-</span></li>
+                            <li>Smažené řízečky z vepřové panenky v panko strouhance <span>209,-</span></li>
+                            <li>Smažený řízek z kuřecího prsíčka v sezamové strouhance <span>199,-</span></li>
+                            <li>Smažený řízek z vykostěného kuřecího stehýnka v corn flakes <span>199,-</span></li>
+                            <li>Smažené řízečky z kančího hřbetu v bylinkové strouhance <span>229,-</span></li>
+                            <li>Smažený řízek z krůtího prsíčka v panko strouhance <span>209,-</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="akce-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="akce-card-image">
+                        <img src="https://images.unsplash.com/photo-1606761568499-6d2451b23c66?w=600" alt="Chytrý kvíz">
+                        <div class="akce-badge">Každý týden</div>
+                    </div>
+                    <div class="akce-card-content">
+                        <h3>Chytrý kvíz</h3>
+                        <p class="akce-date"><i class="fas fa-calendar-alt"></i> 24.2. 2026</p>
+                        <p class="akce-description">
+                            Restaurace U Klokoně je místem, kde si můžete pochutnat na výtečných jídlech a zároveň si užít příjemnou atmosféru. 
+                            Přijďte a otestujte své znalosti, zatímco si pochutnáte na něčem z místní nabídky.
+                        </p>
+                        <a href="https://www.facebook.com/restauraceuklokone" target="_blank" class="btn btn-outline">
+                            <i class="fab fa-facebook-f"></i> Více na Facebooku
+                        </a>
+                    </div>
+                </div>
+                <div class="akce-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="akce-card-image">
+                        <img src="https://images.unsplash.com/photo-1535958636474-b021ee887b13?w=600" alt="Pernštejn hořká 12">
+                        <div class="akce-badge">Novinka</div>
+                    </div>
+                    <div class="akce-card-content">
+                        <h3>Pernštejn hořká 12 ze sklepa</h3>
+                        <p class="akce-description">
+                            Nově u nás na čepu světlý hořký ležák - z nejkvalitnějších surovin s vydatným chmelením tak, 
+                            aby bylo docíleno výrazné hořké chuti. Originální vůně moravského sladu a aroma žateckého chmele 
+                            dodaly pivu střední plnost.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Denní Menu Section -->
+    <section class="denni-menu-section" id="denni-menu">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-subtitle">Každý den čerstvé</span>
+                <h2 class="section-title">Denní menu</h2>
+                <p class="section-date">01.03.2026</p>
+            </div>
+            <div class="denni-menu-grid">
+                <div class="menu-category" data-aos="fade-right" data-aos-delay="100">
+                    <div class="category-icon">
+                        <i class="fas fa-bowl-food"></i>
+                    </div>
+                    <h3>Polévky</h3>
+                    <div class="menu-item">
+                        <span class="item-name">I. Bramboračka s lesními hříbky</span>
+                        <span class="item-price">50,-</span>
+                    </div>
+                </div>
+                <div class="menu-category featured" data-aos="fade-up" data-aos-delay="200">
+                    <div class="category-badge">Polední menu</div>
+                    <div class="category-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>Polední menu</h3>
+                    <p class="category-note">Polévka v ceně</p>
+                    <div class="menu-item">
+                        <span class="item-name">Kuřecí roláda s žemlovou nádivkou se slaninou, čerstvými bylinkami s jemnou žampiónovou omáčkou a máslovou bramborovou kaší</span>
+                        <span class="item-price">189,-</span>
+                    </div>
+                </div>
+                <div class="menu-category" data-aos="fade-left" data-aos-delay="300">
+                    <div class="category-icon">
+                        <i class="fas fa-drumstick-bite"></i>
+                    </div>
+                    <h3>Hlavní jídla</h3>
+                    <div class="menu-item">
+                        <span class="item-name">I. Pečená čtvrtka kachny na kmíně s červeným zelím, houskovým a bramborovým knedlíkem</span>
+                        <span class="item-price">199,-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="item-name">II. Burger s trhaným kofitovaným masem, ledovým salátem, rajčetem, opečenou slaninou, sýrem čedar, bramborovými hranolky a bbq dipem</span>
+                        <span class="item-price">209,-</span>
+                    </div>
+                    <div class="menu-item">
+                        <span class="item-name">III. Velký zeleninový s uzeným norským lososem s bylinkovým dipem a citronem</span>
+                        <span class="item-price">189,-</span>
+                    </div>
+                </div>
+                <div class="menu-category dessert" data-aos="fade-up" data-aos-delay="400">
+                    <div class="category-icon">
+                        <i class="fas fa-ice-cream"></i>
+                    </div>
+                    <h3>Dezerty</h3>
+                    <div class="menu-item">
+                        <span class="item-name">I. Horké jahody s vanilkovou zmrzlinou a šlehačkou</span>
+                        <span class="item-price">69,-</span>
+                    </div>
+                </div>
+            </div>
+            <div class="newsletter-box" data-aos="fade-up" data-aos-delay="500">
+                <div class="newsletter-content">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h4>Přejete si dostávat denní menu do Vaší emailové schránky?</h4>
+                        <p>Stačí vložit e-mail a každý den Vám zašleme aktuální nabídku.</p>
+                    </div>
+                </div>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Váš e-mail" required>
+                    <button type="submit" class="btn btn-primary">Odeslat</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="menu-section" id="menu">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-subtitle">Naše nabídka</span>
+                <h2 class="section-title">Jídelní lístek</h2>
+            </div>
+            
+            <!-- Menu Tabs -->
+            <div class="menu-tabs" data-aos="fade-up" data-aos-delay="100">
+                <button class="menu-tab active" data-tab="napoje">
+                    <i class="fas fa-beer-mug-empty"></i>
+                    <span>Nápoje</span>
+                </button>
+                <button class="menu-tab" data-tab="predkrmy">
+                    <i class="fas fa-cheese"></i>
+                    <span>Předkrmy</span>
+                </button>
+                <button class="menu-tab" data-tab="speciality">
+                    <i class="fas fa-fire"></i>
+                    <span>Speciality</span>
+                </button>
+                <button class="menu-tab" data-tab="steaky">
+                    <i class="fas fa-bacon"></i>
+                    <span>Steaky</span>
+                </button>
+                <button class="menu-tab" data-tab="klasika">
+                    <i class="fas fa-bowl-rice"></i>
+                    <span>Česká klasika</span>
+                </button>
+                <button class="menu-tab" data-tab="salaty">
+                    <i class="fas fa-leaf"></i>
+                    <span>Saláty</span>
+                </button>
+            </div>
+
+            <!-- Menu Content -->
+            <div class="menu-content">
+                <!-- Nápoje -->
+                <div class="menu-panel active" id="napoje">
+                    <div class="menu-grid">
+                        <div class="menu-card" data-aos="fade-up">
+                            <div class="menu-card-header">
+                                <i class="fas fa-beer"></i>
+                                <h3>Pivečko čepované</h3>
+                            </div>
+                            <div class="menu-card-body">
+                                <div class="menu-item"><span>Staropramen 10º (0,3l)</span><span class="price">29,-</span></div>
+                                <div class="menu-item"><span>Staropramen 10º (0,5l)</span><span class="price">46,-</span></div>
+                                <div class="menu-item"><span>Staropramen 11º z tanku (0,3l)</span><span class="price">32,-</span></div>
+                                <div class="menu-item"><span>Staropramen 11º z tanku (0,5l)</span><span class="price">52,-</span></div>
+                                <div class="menu-item"><span>Staropramen Extra chmelená 12º (0,3l)</span><span class="price">37,-</span></div>
+                                <div class="menu-item"><span>Staropramen Extra chmelená 12º (0,5l)</span><span class="price">60,-</span></div>
+                                <div class="menu-item"><span>Cool grep nealkoholický (0,3l)</span><span class="price">34,-</span></div>
+                                <div class="menu-item"><span>Cool grep nealkoholický (0,5l)</span><span class="price">55,-</span></div>
+                            </div>
+                        </div>
+                        <div class="menu-card" data-aos="fade-up" data-aos-delay="100">
+                            <div class="menu-card-header">
+                                <i class="fas fa-wine-bottle"></i>
+                                <h3>Pivečko v lahvi</h3>
+                            </div>
+                            <div class="menu-card-body">
+                                <div class="menu-item"><span>Staropramen nealkoholický světlý (0,5l)</span><span class="price">55,-</span></div>
+                                <div class="menu-item"><span>Staropramen cool grep (0,5l)</span><span class="price">55,-</span></div>
+                                <div class="menu-item"><span>Strongbow cider Gold Apple (0,3l)</span><span class="price">60,-</span></div>
+                            </div>
+                        </div>
+                        <div class="menu-card" data-aos="fade-up" data-aos-delay="200">
+                            <div class="menu-card-header">
+                                <i class="fas fa-wine-glass"></i>
+                                <h3>Víno</h3>
+                            </div>
+                            <div class="menu-card-body">
+                                <div class="menu-item"><span>Bílé rozlévané Chardonnay (0,1l)</span><span class="price">32,-</span></div>
+                                <div class="menu-item"><span>Červené rozlévané Merlot (0,1l)</span><span class="price">32,-</span></div>
+                                <div class="menu-item"><span>Prosecco rozlévané (0,1l)</span><span class="price">46,-</span></div>
+                                <div class="menu-item"><span>Lahvová vína 0,75 dle aktuální nabídky</span><span class="price">320,-</span></div>
+                                <div class="menu-item"><span>Bohemia demi sec</span><span class="price">320,-</span></div>
+                            </div>
+                        </div>
+                        <div class="menu-card" data-aos="fade-up" data-aos-delay="300">
+                            <div class="menu-card-header">
+                                <i class="fas fa-glass-whiskey"></i>
+                                <h3>Destiláty</h3>
+                            </div>
+                            <div class="menu-card-body">
+                                <div class="menu-item"><span>Zelená Bartida 0,04l</span><span class="price">52,-</span></div>
+                                <div class="menu-item"><span>Stará myslivecká 0,04l</span><span class="price">52,-</span></div>
+                                <div class="menu-item"><span>Metaxa***** 0,04l</span><span class="price">70,-</span></div>
+                                <div class="menu-item"><span>Tequila Silver 0,04l</span><span class="price">70,-</span></div>
+                                <div class="menu-item"><span>Gordons dry gin 0,04l</span><span class="price">70,-</span></div>
+                                <div class="menu-item"><span>Jägermeister 0,04l</span><span class="price">70,-</span></div>
+                                <div class="menu-item"><span>Fernet Stock 0,04l</span><span class="price">52,-</span></div>
+                                <div class="menu-item"><span>Vodka Finlandia 0,04l</span><span class="price">60,-</span></div>
+                                <div class="menu-item"><span>Becherovka 0,04l</span><span class="price">60,-</span></div>
+                            </div>
+                        </div>
+                        <div class="menu-card" data-aos="fade-up" data-aos-delay="400">
+                            <div class="menu-card-header">
+                                <i class="fas fa-whiskey-glass"></i>
+                                <h3>Whisky & Rumy</h3>
+                            </div>
+                            <div class="menu-card-body">
+                                <div class="menu-item"><span>Johnnie Walker Red Label 0,04l</span><span class="price">75,-</span></div>
+                                <div class="menu-item"><span>Jack Daniels 0,04l</span><span class="price">85,-</span></div>
+                                <div class="menu-item"><span>Captain Morgan Spiced gold 0,04l</span><span class="price">65,-</span></div>
+                                <div class="menu-item"><span>Gold of Mauritius 0,04l</span><span class="price">150,-</span></div>
+                                <div class="menu-item"><span>Diplomatico Reserva Exclusiva 12yo 0,04l</span><span class="price">130,-</span></div>
+                                <div class="menu-item"><span>Don Papa 0,04l</span><span class="price">120,-</span></div>
+                            </div>
+                        </div>
+                        <div class="menu-card" data-aos="fade-up" data-aos-delay="500">
+                            <div class="menu-card-header">
+                                <i class="fas fa-mug-hot"></i>
+                                <h3>Nealkoholické & Teplé nápoje</h3>
+                            </div>
+                            <div class="menu-card-body">
+                                <div class="menu-item"><span>Schweppes tonic 0,25l</span><span class="price">45,-</span></div>
+                                <div class="menu-item"><span>Red Bull 0,25l</span><span class="price">70,-</span></div>
+                                <div class="menu-item"><span>Granini džusy 0,2l</span><span class="price">45,-</span></div>
+                                <div class="menu-item"><span>Espresso</span><span class="price">55,-</span></div>
+                                <div class="menu-item"><span>Cappuccino</span><span class="price">70,-</span></div>
+                                <div class="menu-item"><span>Caffé latte</span><span class="price">70,-</span></div>
+                                <div class="menu-item"><span>Svařené víno červené či bílé</span><span class="price">70,-</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Předkrmy -->
+                <div class="menu-panel" id="predkrmy">
+                    <div class="menu-grid single-column">
+                        <div class="menu-card large" data-aos="fade-up">
+                            <div class="menu-card-header">
+                                <i class="fas fa-cheese"></i>
+                                <h3>K pivku i vínku</h3>
+                            </div>
+                            <div class="menu-card-body">
+                                <div class="menu-item featured">
+                                    <div class="item-info">
+                                        <span class="item-name">Domácí nakládaný hermelín</span>
+                                        <span class="item-desc">Smetanový sýr naložený s česnekem, cibulí a pikantním kořením</span>
+                                    </div>
+                                    <span class="price">119,-</span>
+                                </div>
+                                <div class="menu-item featured">
+                                    <div class="item-info">
+                                        <span class="item-name">80g Hovězí carpaccio z pravé svíčkové</span>
+                                        <span class="item-desc">S bazalkovým pestem, uzenou mořskou solí, čerstvou rukolou a sýrem Grana Padano</span>
+                                    </div>
+                                    <span class="price">199,-</span>
+                                </div>
+                                <div class="menu-item featured">
+                                    <div class="item-info">
+                                        <span class="item-name">8Ks Smažené čedarové nuggety</span>
+                                        <span class="item-desc">S Jalapeños papričkami, zakysanou smetanou a rukolovým salátkem</span>
+                                    </div>
+                                    <span class="price">159,-</span>
+                                </div>
+                                <div class="menu-item featured">
+                                    <div class="item-info">
+                                        <span class="item-name">100g Namíchaný tatarský hovězí bifteček</span>
+                                        <span class="item-desc">S topinkami a česnekem</span>
+                                    </div>
+                                    <span class="price">199,-</span>
+                                </div>
+                                <div class="menu-item featured">
+                                    <div class="item-info">
+                                        <span class="item-name">200g Namíchaný tatarský hovězí bifteček</span>
+                                        <span class="item-desc">S topinkami a česnekem</span>
+                                    </div>
+                                    <span class="price">299,-</span>
+                                </div>
+                                <div class="menu-item featured">
+                                    <div class="item-info">
+                                        <span class="item-name">Domácí bramborové chipsy</span>
+                                        <span class="item-desc">S BBQ omáčkou, dozlatova usmažené z čerstvých brambor</span>
+                                    </div>
+                                    <span class="price">89,-</span>
+                                </div>
+                                <div class="menu-item featured">
+                                    <div class="item-info">
+                                        <span class="item-name">Opečená klobása</span>
+                                        <span class="item-desc">Podávaná s hořčicí a čerstvým křenem</span>
+                                    </div>
+                                    <span class="price">169,-</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Speciality -->
+                <div class="menu-panel" id="speciality">
+                    <div class="menu-grid single-column">
+                        <div class="menu-card large" data-aos="fade-up">
+                            <div class="menu-card-header">
+                                <i class="fas fa-fire-flame-curved"></i>
+                                <h3>Klokoňovy speciality</h3>
+                            </div>
+                            <div class="menu-card-body">
+                                <div class="menu-item featured highlight">
+                                    <div class="item-info">
+                                        <span class="item-name">1300g Pečené vepřové koleno</span>
+                                        <span class="item-desc">Marinované v pivní marinádě, podávané se sladko-kyselou čalamádo, hořčicí a čerstvým křenem</span>
+                                    </div>
+                                    <span class="price">389,-</span>
+                                </div>
+                                <div class="menu-item featured">
+                                    <div class="item-info">
+                                        <span class="item-name">500g Pečená vepřová žebra</span>
+                                        <span class="item-desc">V pikantní marinádě s křenem, hořčicí a barbecue omáčkou</span>
+                                    </div>
+                                    <span class="price">279,-</span>
+                                </div>
+                                <div class="menu-item featured">
+                                    <div class="item-info">
+                                        <span class="item-name">500g Marinovaná kuřecí křidélka</span>
+                                        <span class="item-desc">S kukuřičným klasem dozlatova upečená, podávaná s česnekovým dipem</span>
+                                    </div>
+                                    <span class="price">239,-</span>
+                                </div>
+                                <div class="menu-item featured">
+                                    <div class="item-info">
+                                        <span class="item-name">220g Grilované kuřecí prsíčko Supreme</span>
+                                        <span class="item-desc">V čerstvých bylinkách, připravené metodou sous-vide</span>
+                                    </div>
+                                    <span class="price">219,-</span>
+                                </div>
+                                <div class="menu-item featured">
+                                    <div class="item-info">
+                                        <span class="item-name">200g Hovězí burger s anglickou slaninou</span>
+                                        <span class="item-desc">S čerstvým salátem, sýrem čedar, americkým dresingem a bramborovými hranolky</span>
+                                    </div>
+                                    <span class="price">269,-</span>
+                                </div>
+                                <div class="menu-item featured">
+                                    <div class="item-info">
+                                        <span class="item-name">200g Hovězí burger Jalapeños</span>
+                                        <span class="item-desc">S karamelizovanou cibulkou, rajčetem, jalapeños papričkami, salátem, anglickou slaninou, čedarem a hranolky</span>
+                                    </div>
+                                    <span class="price">269,-</span>
+                                </div>
+                                <div class="menu-item featured">
+                                    <div class="item-info">
+                                        <span class="item-name">170g Caesar burger</span>
+                                        <span class="item-desc">V domácí sezamové bulce s grilovaným kuřecím prsíčkem, římským salátem, anglickou slaninou, rajčetem, parmezánem a caesar dipem</span>
+                                    </div>
+                                    <span class="price">269,-</span>
+                                </div>
+                                <div class="menu-item featured">
+                                    <div class="item-info">
+                                        <span class="item-name">200g Smažený vepřový či kuřecí řízek</span>
+                                        <span class="item-desc">S citronem, dozlatova usmažené kuřecí prsíčko nebo vepřové karé</span>
+                                    </div>
+                                    <span class="price">209,-</span>
+                                </div>
+                                <div class="menu-item featured">
+                                    <div class="item-info">
+                                        <span class="item-name">200g Křupavé belgické hranolky</span>
+                                        <span class="item-desc">S konfitovaným trhaným masem v barbeque marinádě, čedarem a česnekovým dipem</span>
+                                    </div>
+                                    <span class="price">259,-</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Steaky -->
+                <div class="menu-panel" id="steaky">
+                    <div class="menu-grid">
+                        <div class="menu-card" data-aos="fade-up">
+                            <div class="menu-card-header">
+                                <i class="fas fa-fire"></i>
+                                <h3>Steaky od Klokoně</h3>
+                            </div>
+                            <div class="menu-card-body">
+                                <div class="menu-item featured">
+                                    <div class="item-info">
+                                        <span class="item-name">300g Vepřový T-bone steak</span>
+                                        <span class="item-desc">Z vyzrálé kotletky s panenkou. Během doby zrání ztratí určité množství vody a tím získá intenzivnější chuť</span>
+                                    </div>
+                                    <span class="price">289,-</span>
+                                </div>
+                                <div class="menu-item featured">
+                                    <div class="item-info">
+                                        <span class="item-name">230g Hovězí steak z argentinského býčka</span>
+                                        <span class="item-desc">Propečený dle vašeho přání dle denní nabídky</span>
+                                    </div>
+                                    <span class="price">309,-</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-card" data-aos="fade-up" data-aos-delay="100">
+                            <div class="menu-card-header">
+                                <i class="fas fa-bowl-food"></i>
+                                <h3>Omáčky ke steakům</h3>
+                            </div>
+                            <div class="menu-card-body">
+                                <div class="menu-item"><span>Omáčka z lesních hub</span><span class="price">30,-</span></div>
+                                <div class="menu-item"><span>Omáčka se zeleným pepřem</span><span class="price">30,-</span></div>
+                                <div class="menu-item"><span>Omáčka Jack Daniels</span><span class="price">30,-</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Česká klasika -->
+                <div class="menu-panel" id="klasika">
+                    <div class="menu-grid">
+                        <div class="menu-card" data-aos="fade-up">
+                            <div class="menu-card-header">
+                                <i class="fas fa-utensils"></i>
+                                <h3>Klokoňova česká klasika</h3>
+                            </div>
+                            <div class="menu-card-body">
+                                <div class="menu-item featured">
+                                    <div class="item-info">
+                                        <span class="item-name">200g Hovězí líčka</span>
+                                        <span class="item-desc">Pomalu dušená na kořenové zelenině, červeném víně a bylinkách se šťouchaným bramborem s cibulkou</span>
+                                    </div>
+                                    <span class="price">269,-</span>
+                                </div>
+                                <div class="menu-item featured">
+                                    <div class="item-info">
+                                        <span class="item-name">Dozlatova pečená kachnička z české farmy</span>
+                                        <span class="item-desc">Na kmíně s červeným zelím, houskovým a bramborovým knedlíkem</span>
+                                    </div>
+                                    <span class="price">289,-</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-card" data-aos="fade-up" data-aos-delay="100">
+                            <div class="menu-card-header">
+                                <i class="fas fa-face-smile"></i>
+                                <h3>Když to musí být :-)</h3>
+                            </div>
+                            <div class="menu-card-body">
+                                <div class="menu-item featured">
+                                    <div class="item-info">
+                                        <span class="item-name">150g Smažený sýr gouda</span>
+                                        <span class="item-desc">S domácí tatarskou omáčkou</span>
+                                    </div>
+                                    <span class="price">159,-</span>
+                                </div>
+                                <div class="menu-item featured">
+                                    <div class="item-info">
+                                        <span class="item-name">120g Smažený hermelín</span>
+                                        <span class="item-desc">S domácí tatarskou omáčkou</span>
+                                    </div>
+                                    <span class="price">159,-</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-card" data-aos="fade-up" data-aos-delay="200">
+                            <div class="menu-card-header">
+                                <i class="fas fa-bowl-rice"></i>
+                                <h3>Přílohy</h3>
+                            </div>
+                            <div class="menu-card-body">
+                                <div class="menu-item"><span>Vařené brambory maštěné máslem</span><span class="price">45,-</span></div>
+                                <div class="menu-item"><span>Pečené brambory s česnekem</span><span class="price">45,-</span></div>
+                                <div class="menu-item"><span>Šťouchané brambory</span><span class="price">45,-</span></div>
+                                <div class="menu-item"><span>Belgické křupavé hranolky</span><span class="price">60,-</span></div>
+                                <div class="menu-item"><span>Bramborové hranolky</span><span class="price">50,-</span></div>
+                                <div class="menu-item"><span>Americké brambory</span><span class="price">50,-</span></div>
+                                <div class="menu-item"><span>Restované fazolky na slanině</span><span class="price">55,-</span></div>
+                                <div class="menu-item"><span>Grilovaná zelenina s hrubozrnnou hořčicí</span><span class="price">70,-</span></div>
+                                <div class="menu-item"><span>5ks Houskový knedlík</span><span class="price">45,-</span></div>
+                                <div class="menu-item"><span>Rozpečená bylinková bageta</span><span class="price">60,-</span></div>
+                            </div>
+                        </div>
+                        <div class="menu-card" data-aos="fade-up" data-aos-delay="300">
+                            <div class="menu-card-header">
+                                <i class="fas fa-droplet"></i>
+                                <h3>Omáčky</h3>
+                            </div>
+                            <div class="menu-card-body">
+                                <div class="menu-item"><span>Tatarská omáčka</span><span class="price">30,-</span></div>
+                                <div class="menu-item"><span>Pikantní omáčka</span><span class="price">30,-</span></div>
+                                <div class="menu-item"><span>Česneková omáčka</span><span class="price">30,-</span></div>
+                                <div class="menu-item"><span>Barbecue omáčka</span><span class="price">30,-</span></div>
+                                <div class="menu-item"><span>Sweet chilli omáčka</span><span class="price">30,-</span></div>
+                                <div class="menu-item"><span>Bylinková omáčka</span><span class="price">30,-</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Saláty -->
+                <div class="menu-panel" id="salaty">
+                    <div class="menu-grid">
+                        <div class="menu-card large" data-aos="fade-up">
+                            <div class="menu-card-header">
+                                <i class="fas fa-leaf"></i>
+                                <h3>Saláty</h3>
+                            </div>
+                            <div class="menu-card-body">
+                                <div class="menu-item featured">
+                                    <div class="item-info">
+                                        <span class="item-name">Caesar salát s grilovaným kuřecím prsíčkem</span>
+                                        <span class="item-desc">Z římského salátu s anglickou slaninou, parmezánem, dresingem a bylinkovými krutony</span>
+                                    </div>
+                                    <span class="price">229,-</span>
+                                </div>
+                                <div class="menu-item featured">
+                                    <div class="item-info">
+                                        <span class="item-name">Caesar salát BEZ kuřecího prsíčka</span>
+                                        <span class="item-desc">Z římského salátu s anglickou slaninou, dresingem a bylinkovými krutony</span>
+                                    </div>
+                                    <span class="price">169,-</span>
+                                </div>
+                                <div class="menu-item featured">
+                                    <div class="item-info">
+                                        <span class="item-name">Velký zeleninový salát se smaženými kuřecími stripsy</span>
+                                        <span class="item-desc">S bazalkovým pestem</span>
+                                    </div>
+                                    <span class="price">209,-</span>
+                                </div>
+                                <div class="menu-item featured">
+                                    <div class="item-info">
+                                        <span class="item-name">Velký řecký salát</span>
+                                        <span class="item-desc">S olivami a pravým ovčím sýrem feta</span>
+                                    </div>
+                                    <span class="price">199,-</span>
+                                </div>
+                                <div class="menu-item featured">
+                                    <div class="item-info">
+                                        <span class="item-name">Velký zeleninový salát s konfitovaným trhaným masem</span>
+                                        <span class="item-desc">V barbeque marinádě</span>
+                                    </div>
+                                    <span class="price">199,-</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-card" data-aos="fade-up" data-aos-delay="100">
+                            <div class="menu-card-header">
+                                <i class="fas fa-ice-cream"></i>
+                                <h3>Sladká tečka na konec...</h3>
+                            </div>
+                            <div class="menu-card-body">
+                                <div class="menu-item featured">
+                                    <div class="item-info">
+                                        <span class="item-name">Dezert dle denní nabídky</span>
+                                    </div>
+                                    <span class="price">79,-</span>
+                                </div>
+                                <div class="menu-item featured">
+                                    <div class="item-info">
+                                        <span class="item-name">Čokoládový fondant</span>
+                                        <span class="item-desc">S omáčkou z lesních plodů</span>
+                                    </div>
+                                    <span class="price">89,-</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Preview Section -->
+    <section class="about-preview">
+        <div class="container">
+            <div class="about-preview-grid">
+                <div class="about-preview-image" data-aos="fade-right">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800" alt="Interiér restaurace">
+                    <div class="experience-badge">
+                        <span class="number">25+</span>
+                        <span class="text">let tradice</span>
+                    </div>
+                </div>
+                <div class="about-preview-content" data-aos="fade-left">
+                    <span class="section-subtitle">O naší restauraci</span>
+                    <h2 class="section-title">Naší filozofií je Vaše maximální spokojenost!</h2>
+                    <ul class="about-features">
+                        <li><i class="fas fa-check"></i> Pro nekuřáky máme oddělenou část</li>
+                        <li><i class="fas fa-check"></i> Možnost využití samostatného salónku až pro 35 lidí</li>
+                        <li><i class="fas fa-check"></i> Rádi zařídíme rauty, svatby, oslavy narozenin</li>
+                        <li><i class="fas fa-check"></i> Pravidelně pořádáme sportovní přenosy na velké LCD TV</li>
+                        <li><i class="fas fa-check"></i> WIFI zdarma</li>
+                    </ul>
+                    <p class="about-text">
+                        A samozřejmě se na nás neváhejte obrátit s jakýmkoliv přáním nebo připomínkou. 
+                        Vždy vám rádi vyjdeme vstříc! Těšíme se na Vaší návštěvu :-)
+                    </p>
+                    <a href="o-nas.html" class="btn btn-primary">
+                        <span>Více o nás</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact CTA Section -->
+    <section class="contact-cta" id="rezervace">
+        <div class="container">
+            <div class="cta-content" data-aos="fade-up">
+                <h2>Rezervujte si stůl ještě dnes</h2>
+                <p>Zavolejte nám nebo napište email a my se o vše postaráme</p>
+                <div class="cta-buttons">
+                    <a href="tel:+420272654205" class="btn btn-primary btn-large">
+                        <i class="fas fa-phone"></i>
+                        <span>+420 272 654 205</span>
+                    </a>
+                    <a href="mailto:info@restauraceuklokone.cz" class="btn btn-secondary btn-large">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@restauraceuklokone.cz</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3 class="footer-logo">U Klokoně</h3>
+                    <p>Znovuzrozená vršovická legenda. Tradiční česká kuchyně v moderním pojetí.</p>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/restauraceuklokone" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigace</h4>
+                    <ul>
+                        <li><a href="index.html">Domů</a></li>
+                        <li><a href="#menu">Menu</a></li>
+                        <li><a href="o-nas.html">O nás</a></li>
+                        <li><a href="galerie.html">Galerie</a></li>
+                        <li><a href="kontakt.html">Kontakt</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Otevírací doba</h4>
+                    <ul class="opening-hours">
+                        <li><span>Pondělí - Čtvrtek</span><span>11:00 - 23:00</span></li>
+                        <li><span>Pátek - Sobota</span><span>11:00 - 00:00</span></li>
+                        <li><span>Neděle</span><span>11:00 - 23:00</span></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Kontakt</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> 28. pluku 456, Praha 10, Vršovice</li>
+                        <li><i class="fas fa-phone"></i> +420 272 654 205</li>
+                        <li><i class="fas fa-envelope"></i> info@restauraceuklokone.cz</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Restaurace U Klokoně. Všechna práva vyhrazena.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
